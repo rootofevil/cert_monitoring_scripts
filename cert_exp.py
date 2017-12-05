@@ -13,17 +13,10 @@ def get_cert_exp(path):
 
 if __name__ == "__main__":
     try:
-        type = sys.argv[1]
+        path = sys.argv[1]
         domain = sys.argv[2]
     except IndexError:
         exit("Error: 2 Args expected")
     
-    if type == 'letsencrypt':
-        dir = '/etc/letsencrypt/live/' + domain + '/cert.pem'
-    elif type == 'centos':
-        dir = "/etc/pki/tls/certs/" + domain + '.pem'
-        exit('not implemented yet')
-    else:
-        exit('unknown type of service')
-        
-    print get_cert_exp(dir)
+    certpath = path + "/" + domain + '/cert.pem'   
+    print get_cert_exp(certpath)
