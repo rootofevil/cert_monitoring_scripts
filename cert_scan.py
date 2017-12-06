@@ -15,10 +15,6 @@ def get_certs_in_json(list):
         
     return json.dumps(data)
     
-        
-#def check_cert_date():
-#    pass
-
 
 if __name__ == "__main__":
     services = {'letsencrypt': '/etc/letsencrypt/live/', 'centos': '/etc/pki/tls/certs/domains'}
@@ -34,9 +30,7 @@ if __name__ == "__main__":
                 for i in a:
                     a[i] = path
                 certs.update(a)
-        print get_certs_in_json(certs)
-        
-            
+        print get_certs_in_json(certs)   
         exit(0)
     if type == 'letsencrypt':
         dir = services['letsencrypt']
